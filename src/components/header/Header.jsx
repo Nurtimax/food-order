@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { FoodOrderContext } from "../../store";
 import BusketButton from "./BusketButton";
 
 const Header = () => {
+  const { setIsBasket } = useContext(FoodOrderContext);
+
   return (
     <Container>
       <Logo>ReactMeals</Logo>
-      <BusketButton />
+      <BusketButton onClick={setIsBasket} />
     </Container>
   );
 };
@@ -23,6 +26,7 @@ const Container = styled.header`
   background: #8a2b06;
   padding: 0 120px;
   align-items: center;
+  z-index: 10;
 `;
 
 const Logo = styled.p`

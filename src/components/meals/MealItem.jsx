@@ -1,40 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { FoodOrderContext } from "../../store";
 import MealP from "./meal-p/MealP";
 
-const DUMMY_MEALS = [
-  {
-    id: Date.now().toString(),
-    title: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: Date.now().toString(),
-    title: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.22,
-  },
-  {
-    id: Date.now().toString(),
-    title: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price:  12.99,
-  },
-  {
-    id: Date.now().toString(),
-    title: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 19.99,
-  },
-];
 const MealItem = () => {
+  const {} = useContext(FoodOrderContext);
+
   return (
-      <Card>
-        {DUMMY_MEALS.map((meal) => {
-          return <MealP meal={meal} />;
-        })}
-      </Card>
+    <Card>
+      {[].map((meal) => {
+        return <MealP meal={meal} key={meal.id} />;
+      })}
+    </Card>
   );
 };
 

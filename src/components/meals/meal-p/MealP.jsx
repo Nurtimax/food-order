@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 // import { ReactComponent as PlusIcon } from "../../../assets/icons/plus-icons.png";
-import {ReactComponent as PlusIcon} from "../../../assets/icons/plus-icons.svg"
+import { ReactComponent as PlusIcon } from "../../../assets/icons/plus-icons.svg";
 import Button from "../../UI/Button";
 const MealP = ({ meal }) => {
   return (
@@ -11,15 +11,18 @@ const MealP = ({ meal }) => {
         <p>{meal.description}</p>
         <span>${meal.price}</span>
       </StyledItemInfo>
-      <div>
+      <StyledBox>
         <StyledInputForm>
-        
+          <label htmlFor="">
+            <span>Amount: </span>
+            <input type="number" />
+          </label>
         </StyledInputForm>
         <Button>
           <StyledIcon />
           Add
         </Button>
-      </div>
+      </StyledBox>
     </Container>
   );
 };
@@ -64,4 +67,22 @@ const StyledTitle = styled.h4`
 const StyledIcon = styled(PlusIcon)`
   margin-right: 10px;
 `;
-const StyledInputForm = styled.div``;
+const StyledInputForm = styled.form`
+  & label input {
+    width: 4rem;
+    height: 2rem;
+    padding: 0 3px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid;
+  }
+`;
+
+const StyledBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 22px;
+  padding: 20px 0;
+`;

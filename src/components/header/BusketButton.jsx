@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as BasketIcon } from "../../assets/icons/basket-icon.svg";
 
-const BusketButton = ({ count }) => {
+const BusketButton = ({ count, ...props }) => {
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <BasketIcon />
       <StyledTitle>You Cart</StyledTitle>
       <StyledCounter id="counter">{count || 0}</StyledCounter>
